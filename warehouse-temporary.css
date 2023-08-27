@@ -1,0 +1,341 @@
+/*-- User Interface --*/
+/*--- Tooltips ---*/
+.tooltip .tooltip-arrow,
+.tooltip:is(.mod-right, .mod-left, .mod-top) .tooltip-arrow {
+	border-color: transparent;
+}
+/* Leaf Tabs - Text overflow fade-out */
+.workspace .mod-root .workspace-tab-header-inner-title {
+	text-overflow: clip;
+} .mod-root .workspace-tab-header-inner-title::before {
+	content: ''; width: 100%; height: 85%;
+	position: absolute; left: 0; bottom: 1px;
+	background: linear-gradient(to right, transparent 73%, var(--background-secondary) 82%);
+} .mod-root .workspace-tab-header:hover .workspace-tab-header-inner-title::before {
+	background: linear-gradient(to right, transparent 80%, var(--tab-outline-color) 90%);
+} .mod-root .workspace-tab-header.is-active .workspace-tab-header-inner-title::before {
+	background: linear-gradient(to right, transparent 73%, var(--background-primary) 82%);
+} .mod-root .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title::before {
+	background: linear-gradient(to right, transparent 80%, var(--background-primary) 90%);
+}
+
+/*--- Global Hover Effects ---*/ /*> Feather */
+/* Overrides */ .menu-item-icon.mod-submenu {
+	margin-right: -18px;
+}
+/* General */ .clickable-icon:hover,
+.menu-item:not(.is-disabled):hover :is(.menu-item-icon, .menu-item-title),
+.workspace-tab-header:hover .workspace-tab-header-inner-icon,
+.mod-root .workspace-tab-header:hover .workspace-tab-header-inner-title,
+.tree-item-self:hover :is(.tree-item-icon, .tree-item-inner, .tree-item-flair-outer) {
+	transition: linear;
+	transition-duration: 100ms
+} /* Justified center */ .clickable-icon:hover,
+.workspace-tab-header:hover .workspace-tab-header-inner-icon,
+.workspace-tab-header .workspace-tab-header-status-container:hover,
+.workspace-tab-header .workspace-tab-header-inner-close-button:hover,
+.nav-folder.mod-root>.nav-folder-title:hover .nav-folder-title-content {
+	transform: scale(1.1);
+} /* Justified left */ .menu-item:not(.is-disabled):hover :is(.menu-item-icon, .menu-item-title),
+.mod-root .workspace-tab-header:hover .workspace-tab-header-inner-title,
+.tree-item-self:hover :is(.tree-item-icon, .tree-item-inner) {
+	transform: scale(1.1) translate(5%);
+} /* Justified right */ .menu-item:not(.is-disabled):hover .menu-item-icon.mod-submenu,
+.tree-item-self:hover .tree-item-flair-outer {
+	transform: scale(1.1) translate(-5%);
+} /* Colors */ .clickable-icon:hover,
+.menu-item:not(.is-disabled):hover :is(.menu-item-icon, .menu-item-title) {
+	color: var(--text-normal);
+}
+/*--- Buttons ---*/
+/*--- Context Menus ---*/
+.menu-item {
+	color: var(--text-muted);
+	margin: 0.2em;
+	padding: calc(1em/3) calc(2em/6*5) calc(1em/3) calc(1em/3);
+} .menu-item-icon {
+	color: inherit
+}
+
+/*--- Reader/Editor ---*/
+
+
+/*--- Button Containers ---*/
+/* Large Clickspace */ .nav-header {
+	justify-content: center;
+	align-content: center;
+	height: var(--header-height)
+} .nav-buttons-container {
+	height: calc(var(--header-height)/3*2);
+} .nav-action-button {
+	height: 100%;
+	width: 100%;
+	min-width: 2rem;
+	max-width: 4rem;
+}
+
+/*-- File Explorer --*/
+/*basic*/
+.nav-files-container {
+	margin-left: .2em;
+	margin-right: .5em;
+} .nav-folder-children {
+    display: flex;
+    flex-direction: column;
+    gap: .1em;
+}
+/*vault name*/
+.nav-folder.mod-root>.nav-folder-title { /*vault name*/
+	font-size: var(--font-small);
+	padding: .5rem 0 !important;
+} .nav-folder.mod-root>.nav-folder-title .nav-folder-title-content {
+	display: flex;
+	justify-content: center;
+	color: var(--text-normal);
+	text-transform: uppercase;
+	font-weight: var(--font-medium);
+}
+
+/*folders and indicators*/
+
+
+.nav-folder-collapse-indicator>svg { /*folder collapse indicator*/
+    stroke: var(--text-muted);
+} .collapse-icon svg.svg-icon {
+    stroke-width: 0.125em;
+}
+/*tags and titles*/
+.nav-file-title { /*gap inbetween title and tag*/
+    gap: calc(1rem/3)
+} .nav-file-title .nav-file-tag {
+	order: 1;
+	min-width: 1.8rem;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	right: 20px;
+} .nav-file-title:has(.nav-file-tag) .nav-file-title-content {
+    order: 2;
+} .nav-file-title-content {
+	margin: 0 0 0 -1rem;
+}
+
+/*-- Workspace Tabs --*/ /*I NEED TO REWRITE EVERYTHING HERE BEFORE COMPLETING*/
+/* HFX Overrides */ .mod-root .workspace-tab-header-inner {
+	padding: 0 6px 0 9px;
+} .workspace-tab-header:not(.is-active):hover > .workspace-tab-header-inner {
+	background-color: transparent;
+}
+
+.workspace-tab-header:not(.is-active) :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-faint);
+	font-weight: var(--font-normal)
+} .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-muted);
+	font-weight: var(--font-medium)
+}
+
+.mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+	color: var(--text-muted)
+} .mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+	color: var(--text-accent);
+	font-weight: var(--font-medium)
+}
+
+.is-focused .workspace-tab-header:not(.is-active) :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-muted);
+	font-weight: var(--font-normal)
+} .is-focused .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-normal);
+	font-weight: var(--font-medium)
+}
+
+.is-focused .mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+	color: var(--text-normal);
+} .is-focused .mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+	color: var(--text-accent);
+	font-weight: var(--font-medium)
+}
+
+/* Hover Effects */ .workspace-tab-header:not(.is-active):hover{
+	background-color: var(--divider-color);
+	color: var(--icon-color-hover);
+	border-radius: var(--tab-radius-active);
+	z-index: 1;
+}
+
+.workspace-tab-header:not(.is-active):hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-muted);
+	font-weight: var(--font-medium)
+} .workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-normal);
+	font-weight: var(--font-semibold)
+}
+
+.mod-active .workspace-tab-header.is-active:hover .workspace-tab-header-inner-icon {
+	color: var(--text-normal)
+} .mod-active .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title {
+	color: var(--text-accent);
+	font-weight: var(--font-semibold)
+}
+
+.is-focused .workspace-tab-header:not(.is-active):hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-normal);
+	font-weight: var(--font-medium)
+} .is-focused .workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
+	color: var(--text-normal);
+	font-weight: var(--font-semibold)
+}
+
+.is-focused .mod-active .workspace-tab-header.is-active:hover .workspace-tab-header-inner-icon {
+	color: var(--text-normal);
+} .is-focused .mod-active .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title {
+	color: var(--text-accent);
+	font-weight: var(--font-semibold)
+}
+
+/* Tab Close */
+.workspace-tab-header-inner-close-button[aria-label="Close"]>svg {
+	stroke: var(--text-faint);
+} .workspace-tab-header-inner-close-button[aria-label="Close"]:hover>svg {
+    stroke: var(--text-muted);
+}
+
+/* Buttons */
+button:not(.clickable-icon) { /*c NEEDS TO BE ALIGNED WITH CONTEXT MENUS */
+    border: 1.5px solid var(--background-modifier-border);
+} select, .dropdown {
+    border: 2px solid var(--background-modifier-border);
+}
+
+/* Checkboxes */
+.markdown-preview-view ul>li.task-list-item.is-checked,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='x'],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task='X'] {
+    text-decoration: none;
+    color: var(--text-faint);
+}
+
+/* Highlight */
+.cm-highlight,
+mark {
+    border-radius: 5px;
+    padding: .1em .4em;
+}
+
+/*- Workspace Tabs -*/
+.workspace-tabs .workspace-leaf {
+	/* Pane/Ribbon Colors */
+	background-color: var(--background-primary);
+} .workspace-ribbon.mod-left.is-collapsed {
+	background-color: var(--background-secondary);
+} .workspace-tab-header-container {
+	/* Remove redundant padding */
+	padding: 0;
+} .workspace-tab-header:hover :is(.workspace-tab-header-status-container, .workspace-tab-header-inner-close-button) {
+	/* Title clip text-overflow bleed fix */
+	background-color: var(--tab-outline-color);
+} .workspace-tab-header.is-active :is(.workspace-tab-header-status-container, .workspace-tab-header-inner-close-button) {
+	background-color: var(--background-primary);
+}
+
+/*- Pane Tabs -*/
+/*c maen: It's mostly undoing the .mod-left/right-split tomfoolery kepano did */
+:is(.mod-root, .mod-left-split, .mod-right-split) .workspace-tab-header-container-inner{
+	/* Positioning */
+	margin: 0 0 -1px 0;
+	padding: calc(1rem/3) calc(1rem/6*5) 0;
+} :is(.mod-left-split, .mod-right-split) :is(.workspace-tab-header, .workspace-tab-header-container-inner) {
+	/* Width Variation */
+	gap: unset;
+	width: 100%;
+	min-width: 0;
+	max-width: var(--tab-max-width);
+}
+
+input[type=checkbox] {
+	border: 0.125em solid var(--checkbox-border-color);
+}
+
+/*!> Dayspring verses */
+h6, .markdown-rendered h6 {
+	position: relative;
+	top: var(--h1-size);
+	left: -3.5em;
+	width: 3em;
+	margin: 0 0;
+	text-align: right;
+	user-select: none;
+	overflow: visible;
+} h6 .heading-collapse-indicator {
+	display: none;
+}
+
+/*- End of plagiarism, start of original code -----*/
+/* Callouts */
+.callout {
+	padding: calc(1em/3*2) calc(1em/6*5);
+} .callout-title {
+	color: rgb(var(--callout-color));
+	align-items: center;
+	border-radius: var(--callout-radius);
+} .callout.is-collapsible > .callout-title {
+	cursor: pointer;
+} .callout.is-collapsible > .callout-title:hover {
+	background-color: rgba(var(--callout-color), 0.1);
+} .callout-icon, .callout-fold {
+	align-self: initial;
+	margin: initial;
+} .callout-title-inner :is(h1, h2, h3, h4, h5, h6) {
+	margin: 0;
+} .callout-title, .callout-content {
+	padding: calc(1em/3) calc(1em/6*5);
+} .callout-content > :first-child {
+	margin-block-start: 0;
+} .callout-content > :last-child {
+	margin-block-end: calc(1em/3);
+}
+
+/* Removals and Overrides */
+.workspace .mod-root .workspace-tab-header-inner::after {
+	/* Workspace tab separators */
+	display: none;
+}
+
+:is(.mod-left-split, .mod-right-split) .workspace-tab-header:before,
+:is(.mod-left-split, .mod-right-split) .workspace-tab-header:after {
+	/* Sidebar tab curve restoration */
+	display: unset;
+} .workspace-split:is(.mod-root, .mod-left-split, .mod-right-split) .workspace-tab-header.is-active::before,
+.workspace-split:is(.mod-root, .mod-left-split, .mod-right-split) .workspace-tab-header.is-active::after {
+	box-shadow: inset 0 0 0 var(--tab-outline-width) var(--tab-outline-color), 0 0 0 calc(var(--tab-curve) * 4) var(--tab-background-active);
+} :is(.mod-root, .mod-left-split, .mod-right-split) :is(.workspace-tab-header.is-active, .workspace-tab-header.is-active:hover) {
+    box-shadow: 0 0 0 var(--tab-outline-width) var(--tab-outline-color);
+    color: var(--text-muted);
+    background-color: var(--tab-background-active);
+	border-radius: var(--tab-radius-active);
+	z-index: 2;
+}
+
+/* Sidebar Toggles */
+.sidebar-toggle-button:is(.mod-left, .mod-right) {
+	width: var(--ribbon-width);
+	height: var(--header-height);
+} .workspace-ribbon.mod-left {
+	padding: var(--size-4-2) 0;
+} .clickable-icon svg {
+	align-self: center;
+} .side-dock-actions {
+	margin: 0.5em 0;
+} .side-dock-ribbon-action {
+	height: 100%;
+} :is(.side-dock-actions, .side-dock-settings) .side-dock-ribbon-action {
+	margin: 0 auto;
+}
+
+/* Borders */
+.workspace-ribbon.mod-left:before { /* that small line inbetween the left sidebar toggle and ribbon */
+	border-bottom-color: transparent;
+} .is-hidden-frameless { /* THIS should be the default! */
+	--divider-vertical-height: calc(100% - var(--header-height));
+}

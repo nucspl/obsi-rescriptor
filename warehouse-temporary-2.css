@@ -1,0 +1,123 @@
+.tree-item-self .tree-item-inner {
+	text-overflow: clip;
+	white-space: nowrap;
+	width: 100%;
+	color: transparent;
+	background: linear-gradient(to right, var(--text-faint) 80%, transparent 90%);
+	background-clip: text;
+	-webkit-background-clip: text;
+} .tree-item-self:hover .tree-item-inner {
+	background: linear-gradient(to right, var(--text-muted) 73%, transparent 82%); /* FOUND THE ERROR: I need to specify the heirarchy using these */
+	mix-blend-mode: screen;
+	background-clip: text;
+	-webkit-background-clip: text;
+} .tree-item-self.is-active .tree-item-inner {
+	background: linear-gradient(to right, var(--text-muted) 80%, transparent 90%);
+	mix-blend-mode: screen;
+	background-clip: text;
+	-webkit-background-clip: text;
+} .tree-item-self.is-active:hover .tree-item-inner {
+	background: linear-gradient(to right, var(--text-normal) 73%, transparent 82%);
+	mix-blend-mode: screen;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+/*FILE MANAGER*/
+.nav-files-container {
+	margin-left: .2em;
+	margin-right: .5em;
+} .nav-folder-children {
+    display: flex;
+    flex-direction: column;
+    gap: .1em;
+}
+
+.nav-folder.mod-root>.nav-folder-title { /*vault name*/
+	font-size: var(--font-small);
+	padding: .5rem 0 !important;
+} .nav-folder.mod-root>.nav-folder-title .nav-folder-title-content {
+	display: flex;
+	justify-content: center;
+	color: var(--text-normal);
+	text-transform: uppercase;
+	font-weight: var(--nav-item-weight-active);
+} .nav-folder.mod-root>.nav-folder-title:hover .nav-folder-title-content { /*hover*/
+	color: var(--text-normal);
+	font-weight: var(--nav-item-weight-active-hover);
+}
+
+.nav-folder-collapse-indicator>svg { /*folder collapse indicator*/
+    stroke: var(--text-muted);
+} .collapse-icon svg.svg-icon {
+    stroke-width: 0.125em;
+}
+
+.nav-file-title { /*gap inbetween title and tag*/
+    gap: 3px;
+} .nav-file-title .nav-file-tag {
+	order: 1;
+	min-width: 1.8rem;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	right: 23px
+} .nav-file-title .nav-file-title-content {
+    order: 2;
+	margin: 0 0 0 -2rem;
+}
+/*FILE MANAGER END*/
+
+.nav-folder-children .nav-file-title-content {
+	color: var(--text-faint);
+} :is(.nav-file-title.is-active, .nav-file-title:hover) .nav-file-title-content {
+    color: var(--text-muted);
+} .nav-file-title.is-active:hover .nav-file-title-content {
+	color: var(--text-normal);
+}
+
+/*230827*/
+/* Fade-out Text Overflow */ /*c maen: --fading-color is a color variable reference for color hierarchy */
+.workspace-tab-header .workspace-tab-header-inner-title,
+.workspace-tab-header.is-active .workspace-tab-header-inner-title,
+.tree-item-self .tree-item-inner,
+.tree-item-self.is-active .tree-item-inner {
+	text-overflow: clip !important;
+	white-space: nowrap !important;
+	width: 100%;
+	color: transparent !important;
+	background: linear-gradient(to right, var(--fading-color) 80%, transparent 90%);
+	mix-blend-mode: screen;
+	background-clip: text;
+	-webkit-background-clip: text;
+} .workspace-tab-header:hover .workspace-tab-header-inner-title,
+.workspace-tab-header.is-active:hover .workspace-tab-header-inner-title,
+.tree-item-self:hover .tree-item-inner,
+.tree-item-self.is-active:hover .tree-item-inner {
+	background: linear-gradient(to right, var(--fading-color) 73%, transparent 82%); /* FOUND THE ERROR: I need to specify the heirarchy using these */
+	mix-blend-mode: screen;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+/* Transform Hover Effects */ /*c maen: Having transitions and durations in each style saves more space than a unified one */
+/* Justified Left */ .menu-item:not(.is-disabled):hover :is(.menu-item-icon, .menu-item-title),
+.mod-root .workspace-tab-header:hover .workspace-tab-header-inner-title,
+.tree-item-self:hover :is(.tree-item-icon, .tree-item-inner) {
+	transition: linear;
+	transition-duration: 100ms;
+	transform: scale(1.1) translate(5%)
+} /* Justified Right */ .menu-item:not(.is-disabled):hover .menu-item-icon.mod-submenu,
+.tree-item-self:hover .tree-item-flair-outer {
+	transition: linear;
+	transition-duration: 100ms;
+	transform: scale(1.1) translate(-5%)
+} /* Justified Center */ .clickable-icon:hover,
+.workspace-tab-header:hover .workspace-tab-header-inner-icon,
+.workspace-tab-header .workspace-tab-header-status-container:hover,
+.workspace-tab-header .workspace-tab-header-inner-close-button:hover,
+.nav-folder.mod-root>.nav-folder-title:hover .nav-folder-title-content {
+	transition: linear;
+	transition-duration: 100ms;
+	transform: scale(1.1)
+}
