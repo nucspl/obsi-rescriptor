@@ -1,7 +1,5 @@
-# Obsidian Rescriptor
+# Rescriptor
 v0.2b "Working Prototype" for [Obsidian](https://obsidian.md/) 1.2.8+
-
-**NOT REPRESENTATIVE OF THE FINAL PRODUCT**
 
 Rescriptor (Latin for "rewriter") is a reimplementation of [Typewriter](https://github.com/crashmoney/obsidian-typewriter) for post-1.0 Obsidian. The goal is to get the theme's aesthetics to be on-par with more recent ones, while packaging my own fixes and improvements to a handful of vanilla Obsidian's shortcomings.
 
