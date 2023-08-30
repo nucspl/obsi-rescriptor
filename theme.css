@@ -275,48 +275,75 @@ body {
 	background-color: var(--background-secondary);
 }
 
-/* Hierarchic Hover Effects */
-/* Weight */ .mod-active .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title),
-.workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title),
-.mod-active .workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title),
-[data-path="/"].tree-item-self.nav-folder-title .tree-item-inner.nav-folder-title-content {
-	font-weight: var(--font-semibold);
-	stroke-width: 3
-} .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title),
-.workspace-tab-header:hover :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title) {
-	font-weight: var(--font-medium);
-	stroke-width: 2.5
-} .workspace-tab-header :is(.workspace-tab-header-inner-icon .svg-icon, .workspace-tab-header-inner-title) {
-	font-weight: var(--font-normal);
-	stroke-width: 2
-}
-
-/* Color */
-.is-focused .mod-active .workspace-tab-header:is(.is-active, .is-active:hover) .workspace-tab-header-inner-title,
-.is-focused .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title,
-.tree-item-self.is-active:hover .tree-item-inner,
-.nav-folder .nav-folder-title.is-active .nav-folder-title-content {
-	color: var(--text-accent)
-} .workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.mod-active .workspace-tab-header.is-active:hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.is-focused .workspace-tab-header:is(.is-active, :hover) :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.is-focused .mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.is-focused .workspace-tab-header.is-active:hover .workspace-tab-header-inner-icon,
-.is-focused .mod-active .workspace-tab-header.is-active:hover .workspace-tab-header-inner-icon,
-.tree-item-self.is-active .tree-item-inner,
-.tree-item-self:hover .tree-item-inner,
-.clickable-icon:hover,
-.menu-item:not(.is-disabled):hover :is(.menu-item-icon, .menu-item-title),
-.nav-folder .nav-folder-title .nav-folder-title-content {
-	color: var(--text-normal)
-} .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.mod-active .workspace-tab-header.is-active :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.workspace-tab-header:hover :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.is-focused .workspace-tab-header :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title),
-.tree-item-self .tree-item-inner {
-	color: var(--text-muted)
-} .workspace-tab-header :is(.workspace-tab-header-inner-icon, .workspace-tab-header-inner-title) {
-	color: var(--text-faint)
+/* Hierarchic Hover Effects */ /* Requires installer v3.1.7 for CSS nesting */
+.workspace-tab-header {
+	.workspace-tab-header-inner-icon,
+	.workspace-tab-header-inner-title {
+		color: var(--text-faint);
+		font-weight: var(--font-normal)
+	}
+	.workspace-tab-header-inner-icon .svg-icon {
+		stroke-width: 1.75
+	}
+	&:hover, &.is-active {
+		.workspace-tab-header-inner-icon,
+		.workspace-tab-header-inner-title {
+			color: var(--text-muted);
+			font-weight: var(--font-medium)
+		}
+		.workspace-tab-header-inner-icon .svg-icon {
+			stroke-width: 2.1875
+		}
+	}
+	&.is-active:hover {
+		.workspace-tab-header-inner-icon,
+		.workspace-tab-header-inner-title {
+			color: var(--text-normal);
+			font-weight: var(--font-semibold)
+		}
+		.workspace-tab-header-inner-icon .svg-icon {
+			stroke-width: 2.625
+		}
+	}
+	.mod-active &,
+	.is-focused & {
+		.workspace-tab-header-inner-icon,
+		.workspace-tab-header-inner-title {
+			color: var(--text-muted)
+		}
+		&:hover, &.is-active {
+			.workspace-tab-header-inner-icon,
+			.workspace-tab-header-inner-title {
+				color: var(--text-normal)
+			}
+		}
+		&.is-active:hover {
+			.workspace-tab-header-inner-icon,
+			.workspace-tab-header-inner-title {
+				color: var(--text-accent)
+			}
+		}
+	}
+	.is-focused .mod-active & {
+		.workspace-tab-header-inner-icon,
+		.workspace-tab-header-inner-title {
+			color: var(--text-normal);
+			font-weight: var(--font-medium)
+		}
+		.workspace-tab-header-inner-icon .svg-icon {
+			stroke-width: 2.1875
+		}
+		&:hover, &.is-active, &.is-active:hover {
+			.workspace-tab-header-inner-icon,
+			.workspace-tab-header-inner-title {
+				color: var(--text-accent);
+				font-weight: var(--font-semibold)
+			}
+			.workspace-tab-header-inner-icon .svg-icon {
+				stroke-width: 2.625
+			}
+		}
+	}
 }
 
 /* Simpler Tooltips */
