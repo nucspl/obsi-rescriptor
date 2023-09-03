@@ -27,22 +27,6 @@ Rescriptor (Latin for "rewriter") is a reimplementation of [Typewriter](https://
 	- Smaller and buttonless pinned tabs to mitigate accidental closures;
 	- Larger clickspace for workspace tabs and pane buttons (inspired by [Buena Vista](https://github.com/oqipoDev/Buena-Vista-Theme));
 
-### Features
-- [iA Writer typeface](https://ia.net/topics/a-typographic-christmas), base64-encoded for use on any platform; 
-- Earthy light and dark workspace color schemes (currently borrowed from [Jotter](https://github.com/lnbgc/obsidian-jotter));
-- Larger clickspace for workspace tabs and buttons (inspired by [Buena Vista](https://github.com/oqipoDev/Buena-Vista-Theme));
-- Hierarchical colors and weights for interactive elements;
-- Altered positioning of file explorer elements;
-- Hidden view header breadcrumbs (from [Jotter](https://github.com/lnbgc/obsidian-jotter));
-- Improved header hierarchies with neat inline title integration;
-	- h1 through h3 weights made thinner;
-	- h4 through h6 are significantly smaller, with progressively fainter coloration;
-	- h6 headers may be placed margin-side, useful for navigating via the Outline core plugin (inspired by [Dayspring](https://github.com/erykwalder/dayspring-theme));
-- Better callouts with tighter spacing and color-aligned accented elements;
-	- Sleek icon positioning (from [Listive](https://github.com/efemkay/obsidian-listive-theme));
-	- Works best alongside my Metadata Callouts snippet, or something similar;
-- [Lost Paul's Folder Notes](https://github.com/LostPaul/obsidian-folder-notes) support;
-
 And some more on the way...
 
 ---
